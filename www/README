@@ -1,0 +1,17 @@
+Handling user sessions:
+-Have a cookie called "session_id".
+-This cookie is set when a user logs in.
+-If a user chooses to continue without logging in, set session_id to -1 and username to "Anonymous".
+-Logging out removes the cookie.
+
+Header bar:
+-Show the username and a logout button on every page
+
+Symptoms:
+-Remove numeric IDs and replace with disease names
+-Store all in an SQL table
+
+Diagnosis:
+-Show the disease name and the list of symptoms and all user details, in report format
+-(FUTURE) Create a PDF using Javascript and offer it as a download
+-If user is logged in, store diagnosis in a History collection in MongoDB

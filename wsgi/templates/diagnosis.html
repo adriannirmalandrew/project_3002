@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Diagnosis</title>
+	<link rel="stylesheet" type="text/css" href="/css/diagnosis.css">
+	<script type="text/javascript" src="/scripts/hospitals.js"></script>
+</head>
+<body>
+	<div id="title">
+		<h2>Diagnosis</h2>
+	</div>
+	<div id="disease">
+		<h3>You have been diagnosed with: {{ disease_name }}</h3>
+	</div>
+	<!--Show entered symptoms-->
+	<div id="symptoms">
+		<h3>Your Age: {{ age }}</h3>
+		<h4>Symptoms entered:</h4>
+		<ul>
+			{% for symptom in symptoms %}
+			<li>{{ symptom }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div id="return-link">
+		<a href="/dashboard.php">Return to dashboard</a>
+	</div>
+	<!--Display top 3 hospitals
+	<div id="hospitals">
+		<h3>Nearby Hospitals:</h3>
+		<ul></ul>
+	</div>
+	-->
+</body>
+<!--<script type="text/javascript">getHospitals();</script>-->
+</html>

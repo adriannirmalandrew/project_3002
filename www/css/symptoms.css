@@ -1,0 +1,26 @@
+* {
+	font-family: sans-serif;
+}
+
+body {
+	background-image: linear-gradient(to right, #7fd1b7, white);
+	text-align: center;
+}
+
+#symptom-form {
+	width: 50%;
+	margin-left: 25%;
+}
+
+#symptom-inputs {
+	padding: 1%;
+	padding-bottom: 0px;
+}
+
+#symptom-inputs input[type="number"], select {
+	margin-bottom: 1%;
+}
+
+#symptom-controls {
+	padding: 1%;
+}
