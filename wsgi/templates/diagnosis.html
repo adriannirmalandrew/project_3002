@@ -13,7 +13,7 @@
 	</div>
 	<!--Show entered symptoms-->
 	<div id="symptoms">
-		<h3>Your Age: {{ age }}</h3>
+		<h3>Your Age: {{ age }} years</h3>
 		<h4>Symptoms entered:</h4>
 		<ul>
 			{% for symptom in symptoms %}
@@ -21,15 +21,32 @@
 			{% endfor %}
 		</ul>
 	</div>
+	<br>
 	<div id="return-link">
-		<a href="/dashboard.php">Return to dashboard</a>
+		<a class="control-link" href="/dashboard.php">Return to dashboard</a>
 	</div>
+	<br>
+	<!--Display recommended drugs-->
+	<div id="recommended-drugs">
+		<h3>Recommended Drugs</h3>
+		<p>{{ drugs }}</p>
+	</div>
+	<br>
 	<!--Display top 3 hospitals
 	<div id="hospitals">
 		<h3>Nearby Hospitals:</h3>
+		<div id="latitude"></div>
+		<div id="longitude"></div>
 		<ul></ul>
-	</div>
-	-->
+	</div>-->
 </body>
-<!--<script type="text/javascript">getHospitals();</script>-->
+<script type="text/javascript">
+	if('geolocation' in navigator) {
+		navigator.geolocation.getCurrentPosition(async position => {
+			//document.getElementById('latitude').value = position.coords.latitude;
+			//document.getElementById('longitude').value = position.coords.longitude;
+			console.log(position);
+		});
+	}
+</script>
 </html>

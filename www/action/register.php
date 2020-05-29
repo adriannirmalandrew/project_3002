@@ -49,19 +49,19 @@
 	}
 	//Else, add the new account:
 	else {
+		//Hash the password:
+		$password_hash=hash("sha256", $password);
+		//Insert login into DB:
+		$newAccount=$connect->prepare("insert into login(username, password_hash) values(?,?)");
+		$newAccount->execute([$username, $password_hash]);
 		//Get patient details:
 		$first_name=$_POST["first_name"];
 		$last_name=$_POST["last_name"];
 		$dob=$_POST["dob"];
 		$sex=$_POST["sex"];
-		//Insert form data into table:
+		//Insert details into table:
 		$insertNewRecord=$connect->prepare("insert into patients values(?,?,?,?,?)");
 		$insertNewRecord->execute([$username, $first_name, $last_name, $dob, $sex]);
-		//Hash the password:
-		$password_hash=hash("sha256", $password);
-		//Insert into DB:
-		$newAccount=$connect->prepare("insert into login(username, password_hash) values(?,?)");
-		$newAccount->execute([$username, $password_hash]);
 		//Redirect user to login.php with username and password, to generate session_id:
 		header("Location: /");
 	}

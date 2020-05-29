@@ -1,7 +1,21 @@
 <?php
-	/*Symptoms form.This page goes to /diagnosis/diagnose with the symptoms list*/
+	/*
+	Patient symptoms form
+	This page goes to /diagnosis/diagnose with the symptoms list
+	*/
 	//Check if session ID is valid:
 	if(isset($_COOKIE["session_id"])) {
+		//Get session ID:
+		$session_id = $_COOKIE["session_id"];
+	}
+	else {
+		//Else, redirect to home page:
+		header("Location: /index.php");
+	}
+	
+	//If login is not anonymous:
+	if($session_id != "ANONYMOUS") {
+		//Verify user ID:
 		//Connect to database:
 		$checkSessionId=new PDO("mysql:host=localhost;dbname=cse3002", "project", "project");
 		//Validate cookie:
@@ -15,11 +29,11 @@
 			//Redirect to front page:
 			header("Location: /index.php");
 		}
-	}
-	//Else, go back to home page:
-	else {
-		//Redirect to /index.php
-		header("Location: /index.php");
+		
+		if(isset($_COOKIE["age"])) {
+			//Get age from cookie:
+			$age = $_COOKIE["age"];
+		}
 	}
 ?>
 
@@ -39,7 +53,13 @@
 			<div id="symptom-inputs">
 				<input type="hidden" id="symptom-string" name="symptoms">
 				<label for="age">Age:</label>
-				<input type="number" name="age" value="30" required><br>
+				<?php if(!isset($age)) { ?>
+					<input type="number" name="age" min="0" value="0" required>
+				<?php } else { ?>
+					<input type="hidden" name="age" value=<?php echo $age; ?>>
+					<?php echo $age."<br>";
+				}?>
+				<br>
 			</div>
 			<div id="symptom-controls">
 				<input type="button" value="Add new Symptom" onclick="addSymptom()">
@@ -47,7 +67,7 @@
 			</div>
 		</fieldset>
 	</form>
-	<a href="/dashboard.php">Cancel</a>
+	<a class="control-link" href="/dashboard.php">Cancel</a>
 </body>
 <!--Make sure there's at least one <select> element-->
 <script type="text/javascript">addSymptom();</script>

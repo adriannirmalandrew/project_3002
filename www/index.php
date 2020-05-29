@@ -37,8 +37,15 @@
 	</div>
 	<!--Options to register or continue without signing in-->
 	<div id="links">
-		<a href="/register.php">Register</a>
-		<a href="/action/anonymous_login.php">Continue without Login</a>
+		<a class="control-link" href="/register.php">Register</a>
+		<a class="control-link" href="/action/anonymous_login.php">Continue without Login</a>
+	</div>
+	<!--Authors-->
+	<div id="authors">
+		<h4>A CSE3002 Project by:</h4>
+		<h5>Adrian Nirmal Andrew 18BCE1164</h5>
+		<h5>Madhurima Magesh 18BCE1009</h5>
+		<h4>Faculty: Dr Justus S</h4>
 	</div>
 </body>
 </body>

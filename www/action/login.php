@@ -12,7 +12,7 @@
 	//If session_id cookie exists:
 	if(isset($_COOKIE["session_id"])) {
 		$session_id=$_COOKIE["session_id"];
-		//Check validity
+		//Check validity:
 		//Get row from database:
 		$getSessionIdMatch=$loginDbConn->prepare("select username from login where session_id=?");
 		$getSessionIdMatch->execute([$session_id]);

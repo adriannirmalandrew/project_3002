@@ -24,3 +24,10 @@ body {
 #symptom-controls {
 	padding: 1%;
 }
+
+.control-link {
+	text-decoration: none;
+	color: blue;
+	background-color: #EFEFEF;
+	padding: 0.5%;
+}

@@ -6,7 +6,7 @@ function showHospitals(hospitalString) {
 function getHospitals() {
 	//Get user's location:
 	if('geolocation' in navigator) {
-		navigator.geolocation.getCurrentPosition(function(position) {
+		navigator.geolocation.getCurrentPosition(async position => {
 			var latitude = position.coords.latitude;
 			var longitude = position.coords.longitude;
 			showHospitals(latitude + ", " + longitude);
@@ -17,5 +17,5 @@ function getHospitals() {
 	//Make AJAX query:
 	
 	//Add hospital names to document:
-	showHospitals();
+	//showHospitals();
 }

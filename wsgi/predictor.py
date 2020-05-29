@@ -50,20 +50,14 @@ def predict(syms, age):
 
     from sklearn.metrics import accuracy_score
     y_pred=clf.predict(x_test)
-    #print(accuracy_score(y_test, y_pred))
-    #print(accuracy_score(y_test, y_pred,normalize=False))
 
-    #List of symptoms: 
-    #syms = ['fluid_overload','history_of_alcohol_consumption','distention_of_abdomen','swelling_of_stomach','abdominal_pain']
+    #List of symptoms:
     #Set 'true' fields for specified symptoms:
     for k in range(0,len(symptoms)-4):
         for z in syms:
             if(z==symptoms[k]):
                 l[k]=1
-    #print(len(l))
-    
-    #Set patient's age:
-    #age=30
+
     #Set corresponding "age" field to "true":
     if(age<10):
         l[k+1]=1
