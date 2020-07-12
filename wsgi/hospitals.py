@@ -1,14 +1,10 @@
 #!/usr/bin/python
 
-# 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=13.0827,80.2707&type=hospital&key=AIzaSyCTFcg_LVtSTUQzT0xr_-Vj1_E5LuGOOYM&radius=1000'
-# 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=13.0827,80.2707&type=hospital&key=AIzaSyCTFcg_LVtSTUQzT0xr_-Vj1_E5LuGOOYM&rankby=distance'
-#bestHospital(13.0827,80.2707)
-
 import requests
 from haversine import haversine, Unit
 import time
 
-API_KEY = 'AIzaSyCTFcg_LVtSTUQzT0xr_-Vj1_E5LuGOOYM'
+API_KEY = 'REDACTED'
 radius = 2000
 
 def bestHospitals(x, y):
